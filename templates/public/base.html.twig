@@ -9,13 +9,16 @@
             <link rel="stylesheet" href="{{ asset('assets/view/bootstrap/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/view/css/main.css') }}">
         {% endblock %}
-
-        {% block javascripts %}
-            <script src="{{ asset('assets/view/bootstrap/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('assets/view/js/main.js') }}"></script>
-        {% endblock %}
     </head>
+    <header>
+        {{ include('public/_header.html.twig') }}
+    </header>
     <body>
         {% block body %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('assets/view/bootstrap/js/bootstrap.bundle.js') }}"></script>
+            <script src="{{ asset('assets/view/js/main.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
