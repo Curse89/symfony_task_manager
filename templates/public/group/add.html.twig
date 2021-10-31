@@ -1,0 +1,34 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <div class="container-lg mt-5">
+    <h2 class="mb-4">{{ title }}</h2>
+    {{ include(('public/group/_messages.html.twig')) }}
+    <div class="form-control p-3">
+        {{ form_start(form) }}
+    <div class="form-error">
+        {{ form_errors(form.title) }}
+    </div>
+    <div class="row align-items-center mb-3">
+        <div class="col-2">
+            {{ form_label(form.title) }}
+        </div>
+        <div class="col-10">
+            {{ form_widget(form.title) }}
+        </div>
+    </div>
+    <div class="row align-items-center mb-3">
+        <div class="col-2">
+            {{ form_label(form.active) }}
+        </div>
+        <div class="col-10">
+            {{ form_widget(form.active) }}
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+    </div>
+
+{% endblock %}

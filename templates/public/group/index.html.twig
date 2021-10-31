@@ -4,10 +4,16 @@
 
 {% block body %}
     <div class="container-lg mt-5">
+        <div class="d-flex justify-content-end mb-4">
+            <a href="{{ path('group_create') }}" class="btn btn-success">Добавить группу</a>
+        </div>
+        {{ include('public/group/_messages.html.twig') }}
         {% if groups|length > 0 %}
             {% for group in groups %}
                 {{ include('public/group/_group.html.twig') }}
             {% endfor %}
+        {% else %}
+            {{ include('public/group/_empty.html.twig')  }}
         {% endif %}
     </div>
 {% endblock %}

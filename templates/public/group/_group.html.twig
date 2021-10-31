@@ -1,13 +1,22 @@
-<div class="card border-success mb-3">
-    <div class="card-header">{{ group.title }}</div>
+<div class="card border-success mb-4">
+    <div class="card-header d-flex flex-row justify-content-between align-items-center">
+        <div>{{ group.title }}</div>
+        {% if group.active%}
+            <div class="alert-info p-1">Активна</div>
+        {% else %}
+            <div class="alert-dark p-1">Неактивна</div>
+        {% endif %}
+    </div>
     <div class="card-body text-success">
         <div class="row">
-            <div class="col-6">
-                <p class="card-text">Создана: {{ group.createdAt|date('Y-m-d') }}</p>
+            <div class="col-8">
+                <p class="card-text">Создана: {{ group.createdAt|date('d-m-Y H:i') }}</p>
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-outline-info">Редактировать</button>
-                <button type="button" class="btn btn-outline-danger">Удалить</button>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{{ path('group_update', {'title': group.title }) }}" class="btn btn-outline-info">Редактировать</a>
+                    <a href="{{ path('group_delete', {'title': group.title }) }}" class="btn btn-outline-danger">Удалить</a>
+                </div>
             </div>
         </div>
 

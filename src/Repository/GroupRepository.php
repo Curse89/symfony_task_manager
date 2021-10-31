@@ -22,7 +22,9 @@ class GroupRepository extends ServiceEntityRepository
 	public function findAllGroups(): array
 	{
 		$qb = $this->createQueryBuilder('g')
-			->orderBy('g.active', 'DESC');
+			->orderBy('g.active', 'DESC')
+			->addOrderBy('g.title', 'ASC')
+		;
 
 		$query = $qb->getQuery();
 

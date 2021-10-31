@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\GroupRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=GroupRepository::class)
@@ -20,6 +21,7 @@ class Group
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $title;
 
@@ -82,10 +84,8 @@ class Group
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
+    public function setUpdatedAt(): void
     {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
+	    $this->createdAt = new \DateTimeImmutable();
     }
 }
