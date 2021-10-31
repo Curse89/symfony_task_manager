@@ -1,0 +1,15 @@
+<div class="card border-success mb-3">
+    <div class="card-header">{{ group.title }}</div>
+    <div class="card-body text-success">
+        <div class="row">
+            <div class="col-6">
+                <p class="card-text">Создана: {{ group.createdAt|date('Y-m-d') }}</p>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-outline-info">Редактировать</button>
+                <button type="button" class="btn btn-outline-danger">Удалить</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,16 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'public/base.html.twig' %}
 
 {% block title %}Все группы{% endblock %}
 
 {% block body %}
-    {{ controller_name }}
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-dark">Dark</button>
-    <button type="button" class="btn btn-link">Link</button>
+    <div class="container-lg mt-5">
+        {% if groups|length > 0 %}
+            {% for group in groups %}
+                {{ include('public/group/_group.html.twig') }}
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}
